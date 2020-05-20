@@ -1,0 +1,12 @@
+{
+    "firebase_cert_path": "(Relative path from config folder)",
+    "databaseURL": "Example: https://xxxxxxx.firebaseio.com",
+
+    "osu_api_key": "osu! API key",
+    "ripple_api_key": "Ripple API key",
+
+    "consumer_key": "Twitter consumer API key",
+    "consumer_secret": "Twitter consumer API secret key",
+
+    "private_key_path": "(Relative path from config folder)"
+}

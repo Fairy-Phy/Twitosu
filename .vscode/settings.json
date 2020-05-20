@@ -1,0 +1,9 @@
+{
+    "eslint.enable": true,
+    "eslint.options": {
+        "configFile": ".eslintrc.json"
+    },
+    "licenser.license": "MIT",
+    "licenser.author": "(Fairy)Phy",
+    "licenser.disableAutoHeaderInsertion": true
+}
