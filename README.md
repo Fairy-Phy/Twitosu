@@ -1,5 +1,5 @@
 <div align="center">
-<h1>Twitosu Framework</h1>
+<h1>Twitosu</h1>
 <p>Twitosu create image & tweet.</p>
 <p>Post new osu! player status image to Twitter at set time</p>
 </div>
