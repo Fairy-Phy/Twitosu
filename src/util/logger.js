@@ -8,7 +8,7 @@ log4js.configure({
 			type: "stdout"
 		},
 		file: {
-			type: "File",
+			type: "file",
 			filename: __dirname + "/../../logs/" + date_string + ".log",
 			keepFileExt: true
 		}

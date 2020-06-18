@@ -17,8 +17,8 @@ module.exports = async (twitter_data, image_buffer) => {
 	// eslint-disable-next-line no-unused-vars
 	const server_name = ["official server", "ripple server"];
 
-	const message = "Test tweet";
-	// message = `Todays stats (${server_name[twitter_data.osu_server]})`;
+	// const message = "Test tweet";
+	const message = `Todays stats (${server_name[twitter_data.osu_server]})`;
 
 	const media = await tweet.post("media/upload", { media: image_buffer });
 
