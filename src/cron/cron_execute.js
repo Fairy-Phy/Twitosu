@@ -2,7 +2,6 @@ const database = require("../database/connection_firestore");
 const log4js = require("../util/logger");
 const insert_player_status = require("../database/insert_player_status");
 const update_player_data = require("../database/update_player_status");
-const tweet_execute = require("../twitter/tweet_execute");
 const logger_cron = log4js.getLogger("Cron");
 const logger_db = log4js.getLogger("Database");
 const logger_tweet = log4js.getLogger("Tweet");
