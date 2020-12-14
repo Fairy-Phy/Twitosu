@@ -1,6 +1,6 @@
 {
   "name": "twitosu",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Post new osu! player status image to Twitter at set time",
   "main": "index.js",
   "scripts": {
