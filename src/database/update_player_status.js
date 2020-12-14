@@ -5,41 +5,21 @@ const logger_cron = log4js.getLogger("Cron");
 const logger_db = log4js.getLogger("Database");
 const config = require("../../config/config.json");
 
-module.exports = async () => {
+module.exports = async (twitter_data, tweet_id) => {
 	logger_cron.info("Start: Update player status");
+	try {
+		const get_player_data = await framework.get_osu_status(twitter_data, config.osu_api_key, config.ripple_api_key);
 
-	const find_player_data = await database.collection("Osu! player statuses").get().
-		catch(error => {
-			logger_db.error(error);
-			const _ = {
-				empty: true
-			};
+		const player_object = JSON.parse(JSON.stringify(get_player_data));
 
-			return _;
-		});
+		const find_player_data = await database.collection("Osu! player statuses").doc(tweet_id);
 
-	if (!find_player_data.empty) {
-		find_player_data.forEach(async player_data_doc => {
-			try {
-				const player_data = player_data_doc.data();
-				const player_data_object = {
-					osu_server: player_data.server,
-					osu_name: player_data.username,
-					osu_mode: player_data.mode
-				};
+		await find_player_data.update(player_object);
 
-				const get_player_data = await framework.get_osu_status(player_data_object, config.osu_api_key, config.ripple_api_key);
-
-				const player_object = JSON.parse(JSON.stringify(get_player_data));
-
-				await player_data_doc.ref.update(player_object);
-
-				logger_db.info(player_data.username + ": Status updated");
-			}
-			catch (error) {
-				logger_db.error(error);
-			}
-		});
+		logger_db.info(get_player_data.username + ": Status updated");
+	}
+	catch (error) {
+		logger_db.error(error);
 	}
 
 	logger_cron.info("End: Update player status");

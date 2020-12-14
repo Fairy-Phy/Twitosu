@@ -5,6 +5,7 @@ const { version } = require("./package.json");
 
 logger.info("Welcome to Twitosu.");
 logger.info("This version: " + version);
+logger.info("Thread counts: " + require("os").cpus().length);
 
 const cron_schedules = cron();
 
